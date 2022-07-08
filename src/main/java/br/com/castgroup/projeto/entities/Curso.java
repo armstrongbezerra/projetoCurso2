@@ -13,16 +13,14 @@ import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
+
 import lombok.NoArgsConstructor;
-import lombok.Setter;
+
 
 @Data
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "curso")
+@Table(name = "cursos")
 @Entity
 public class Curso {
 	
@@ -30,7 +28,7 @@ public class Curso {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	@Column(name = "idcurso")
-	private Integer idCurso;
+	private Long idCurso;
 	@Column(name = "descricao", length = 300, nullable = false)
 	private String descricao;
 	@Column(name = "dtInicio", nullable = false)

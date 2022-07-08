@@ -12,19 +12,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.castgroup.projeto.entities.Curso;
-import br.com.castgroup.projetocastgroup.services.CursoService;
+import br.com.castgroup.projeto.services.CursoService;
 
 @RestController
 @RequestMapping(value = "cursos")
 public class CursoController {
 
 	@Autowired
-	CursoService service;
+	CursoService cursoService;
 	
 	@PostMapping(consumes =  MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> post(@RequestBody Curso curso) {
 		try {
-			service.cadastrar(curso);
+			cursoService.cadastrar(curso);
 			return ResponseEntity.status(HttpStatus.CREATED).body("Curso Cadastrado com Sucesso!");
 
 		} catch (Exception e) {
