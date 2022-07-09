@@ -35,5 +35,15 @@ public class CursoService {
 	public List<Curso> listar() {
 		return cursoRespository.findAll();
 	}
+	
+		
+	public Curso salvar(Curso curso) {
+		return this.cursoRespository.save(curso);
+	}
+	
+	@Transactional
+	public void excluiCurso(Long idCurso) {
+		cursoRespository.deleteById(idCurso);
+	}
 
 }

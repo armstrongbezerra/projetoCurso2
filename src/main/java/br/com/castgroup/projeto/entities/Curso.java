@@ -11,6 +11,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -20,7 +23,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "cursos")
+@Table(name = "curso")
 @Entity
 public class Curso {
 	
@@ -32,8 +35,10 @@ public class Curso {
 	@Column(name = "descricao", length = 300, nullable = false)
 	private String descricao;
 	@Column(name = "dtInicio", nullable = false)
+	@CreatedDate
 	private LocalDate dtInicio;
 	@Column(name = "dtTermino", nullable = false)
+	@LastModifiedDate
 	private LocalDate dtTermino;
 	private Integer qtdAluno;
 	@Column(name = "categoria", length = 50, nullable = false)
