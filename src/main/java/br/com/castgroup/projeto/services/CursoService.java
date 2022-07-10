@@ -24,6 +24,9 @@ public class CursoService {
 		cursoRespository.save(curso);
 
 	}
+	public void atualizar(Curso curso) {
+		cursoRespository.save(curso);
+	}
 
 	private void validaData(Curso cursos) {
 		if(cursos.getDtInicio().isAfter(cursos.getDtTermino())) {
@@ -36,7 +39,7 @@ public class CursoService {
 		return cursoRespository.findAll();
 	}
 	
-		
+	
 	public Curso salvar(Curso curso) {
 		return this.cursoRespository.save(curso);
 	}
