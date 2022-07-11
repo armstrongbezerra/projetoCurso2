@@ -10,13 +10,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 
 import br.com.castgroup.projeto.entities.Curso;
 import br.com.castgroup.projeto.services.CursoService;
@@ -56,12 +55,24 @@ public class CursoController {
 		return ResponseEntity.ok(cursoService.listar());
 	}
 	
+	@ApiOperation(value = "Listar Cursos Por Id")
+	@GetMapping(value = "{idCurso}")
+	public ResponseEntity<?> consultarPorId(@PathVariable("idCurso") Long idCurso){
+		try {
+			return ResponseEntity.status(HttpStatus.OK).body(cursoService.consultarPorId(idCurso));
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.NO_CONTENT).body(e.getMessage());
+		}
+		
+		 
+	}
+	
 	
 	@ApiOperation(value = "Deletar Cursos")
-	@DeleteMapping("/{idCurso}")
-	public ResponseEntity<String> delete(@RequestParam Long idCurso){
-		cursoService.excluiCurso(idCurso);
-		return new ResponseEntity<String>("Curso Deletado Com Sucesso!", HttpStatus.OK);
+	@DeleteMapping(value = "/{idCurso}")
+	public ResponseEntity<String> delete(@PathVariable("idCurso") Long idCurso){
+		cursoService.excluirCurso(idCurso);
+		return new ResponseEntity<String>("Curso Excluído Com Sucesso!", HttpStatus.OK);
 	}
 	
 }

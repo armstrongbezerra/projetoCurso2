@@ -1,6 +1,7 @@
 package br.com.castgroup.projeto.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -25,6 +26,7 @@ public class CursoService {
 
 	}
 	public void atualizar(Curso curso) {
+		cursoRespository.findById(curso.getIdCurso());
 		cursoRespository.save(curso);
 	}
 
@@ -39,13 +41,21 @@ public class CursoService {
 		return cursoRespository.findAll();
 	}
 	
+	public Curso consultarPorId(Long idCurso) {
+		Optional<Curso> consultar = cursoRespository.findById(idCurso);
+		if(!consultar.isPresent()) {
+			throw new RuntimeException("Curso não encontrado.");
+		}
+		return consultar.get();
+	}
+	
 	
 	public Curso salvar(Curso curso) {
 		return this.cursoRespository.save(curso);
 	}
 	
 	@Transactional
-	public void excluiCurso(Long idCurso) {
+	public void excluirCurso(Long idCurso) {
 		cursoRespository.deleteById(idCurso);
 	}
 

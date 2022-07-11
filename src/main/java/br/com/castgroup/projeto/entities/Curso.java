@@ -40,13 +40,11 @@ public class Curso {
 	private String descricao;
 	@Column(name = "dtInicio", nullable = false)
 	@CreatedDate
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-	@DateTimeFormat(pattern = "yyyy-MM-dd", iso = ISO.DATE)
+	@JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
 	private LocalDate dtInicio;
 	@Column(name = "dtTermino", nullable = false)
 	@LastModifiedDate
-	@DateTimeFormat(pattern = "yyyy-MM-dd", iso = ISO.DATE)
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+	@JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
 	private LocalDate dtTermino;
 	private Integer qtdAluno;
 	@Column(name = "categoria", length = 50, nullable = false)
