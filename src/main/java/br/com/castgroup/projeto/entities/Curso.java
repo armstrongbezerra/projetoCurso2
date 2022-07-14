@@ -10,20 +10,17 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import org.hibernate.envers.Audited;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.format.annotation.DateTimeFormat.ISO;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import lombok.NoArgsConstructor;
 
-
+@Audited
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -38,13 +35,13 @@ public class Curso {
 	private Long idCurso;
 	@Column(name = "descricao", length = 300, nullable = false)
 	private String descricao;
-	@Column(name = "dtInicio", nullable = false)
+	@Column(name = "dt_inicio", nullable = false)
 	@CreatedDate
-	@JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
+	@JsonFormat(pattern ="yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
 	private LocalDate dtInicio;
-	@Column(name = "dtTermino", nullable = false)
+	@Column(name = "dt_termino", nullable = false)
 	@LastModifiedDate
-	@JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
+	@JsonFormat(pattern ="yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
 	private LocalDate dtTermino;
 	private Integer qtdAluno;
 	@Column(name = "categoria", length = 50, nullable = false)

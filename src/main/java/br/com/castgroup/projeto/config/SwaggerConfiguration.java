@@ -24,7 +24,6 @@ public class SwaggerConfiguration {
 		return new Docket(DocumentationType.SWAGGER_2).select()
 				.apis(RequestHandlerSelectors.basePackage("br.com.castgroup"))
 				.paths(PathSelectors.ant("/**"))
-				.paths(PathSelectors.regex("/api.*"))
 				.build().apiInfo(apiInfo());
 	}
 	

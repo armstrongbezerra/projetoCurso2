@@ -1,7 +1,12 @@
-br\com\castgroup\projeto\controller\CursoController.class
-br\com\castgroup\projeto\repository\ICursoRepository.class
-br\com\castgroup\projeto\entities\Categoria.class
+br\com\castgroup\projeto\services\CategoriaService.class
+br\com\castgroup\projeto\config\SwaggerConfiguration.class
+br\com\castgroup\projeto\repository\CategoriaRepository.class
+br\com\castgroup\projeto\controller\CategoriaController.class
+br\com\castgroup\projeto\services\CursoService.class
 br\com\castgroup\projeto\entities\Curso.class
 br\com\castgroup\projeto\ProjetoApplication.class
-br\com\castgroup\projeto\requests\CursoPostRequest.class
-br\com\castgroup\projeto\requests\CursoPutRequest.class
+br\com\castgroup\projeto\config\CorsConfiguration.class
+br\com\castgroup\projeto\repository\CursoRepository.class
+br\com\castgroup\projeto\controller\CursoController.class
+br\com\castgroup\projeto\entities\CursoLog.class
+br\com\castgroup\projeto\entities\Categoria.class
